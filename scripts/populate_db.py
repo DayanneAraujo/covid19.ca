@@ -5,18 +5,12 @@ from api.models import Covid19Ca
 
 
 def run():
-    # Rename old covid19.csv to covid19-yesterday.csv
-    os.rename(r'data/covid19.csv', r'data/covid19-yesterday.csv')
-
     # Request updated data
     url = 'https://health-infobase.canada.ca/src/data/covidLive/covid19.csv'
     file = requests.get(url)
     open('data/covid19.csv', 'wb').write(file.content)
 
-    # Drop duplicated entries
     df = pd.read_csv('data/covid19.csv')
-    df_old = pd.read_csv('data/covid19-yesterday.csv')
-    df = pd.concat([df, df_old]).drop_duplicates(keep=False)
 
     # Add new entries on DB
     for idx, row in df.iterrows():
