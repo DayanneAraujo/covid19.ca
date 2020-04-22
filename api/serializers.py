@@ -12,7 +12,7 @@ class CanadaSerializer(serializers.ModelSerializer):
         model = Covid19Ca
         fields = Genericfields
 
-class OntarioSerializer(CanadaSerializer):
+class OntarioSerializer(serializers.ModelSerializer):
     class Meta(CanadaSerializer.Meta):
         pass
 
