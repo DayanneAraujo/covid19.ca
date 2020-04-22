@@ -1,0 +1,1 @@
+web: gunicorn covid19cad.wsgi --log-file -
