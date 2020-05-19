@@ -3,25 +3,20 @@ from rest_framework import routers
 from .views import *
 
 router = routers.DefaultRouter()
+router.get_api_root_view().cls.__doc__ = \
+    "You can filter by provinces making requests like: " \
+    "\n - http://localhost:8000/api/canada/?prname=Ontario" \
+    "\n - http://localhost:8000/api/canada/?prname=British Columbia" \
+    "\n " \
+    "\n Available provinces are: " \
+    "['Ontario', 'British Columbia', 'Canada', 'Quebec', 'Alberta', \
+       'Repatriated Travellers', 'Saskatchewan', 'Manitoba', \
+       'New Brunswick', 'Newfoundland and Labrador', \
+       'Prince Edward Island', 'Nova Scotia', 'Northwest Territories', \
+       'Nunavut', 'Yukon', 'Repatriated travellers']" \
+
+
 router.register('canada', CanadaViewSet)
-router.register('ontario', OntarioViewSet, basename='ontario')
-router.register('british-columbia', BritishColumbiaViewSet,
-                basename='british-columbia')
-router.register('quebec', QuebecViewSet, basename='quebec')
-router.register('alberta', AlbertaViewSet, basename='alberta')
-router.register('saskatchewan', SaskatchewanViewSet, basename='saskatchewan')
-router.register('manitoba', ManitobaViewSet, basename='manitoba')
-router.register('newfoundland-and-labrador', NewfoundlandAndLabradorViewSet,
-                basename='newfoundland-and-labrador')
-router.register('prince-edward-island', PrinceEdwardIslandViewSet,
-                basename='prince-edward-island')
-router.register('nova-scotia', NovaScotiaViewSet, basename='nova-scotia')
-router.register('northwest-territories', NorthwestTerritoriesViewSet,
-                basename='northwest-territories')
-router.register('nunavut', NunavutViewSet, basename='nunavut')
-router.register('yukon', YukonViewSet, basename='yukon')
-router.register('repatriated-travellers', RepatriatedTravellersViewSet,
-                basename='repatriated-travellers')
 
 urlpatterns = [
     path('', include(router.urls))
