@@ -45,7 +45,6 @@ INSTALLED_APPS = [
     'requests',
     'pandas',
     'api',
-    'django_filters',
 ]
 
 MIDDLEWARE = [
