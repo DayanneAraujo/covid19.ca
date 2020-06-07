@@ -3,10 +3,11 @@ from rest_framework import routers
 from .views import *
 
 router = routers.DefaultRouter()
+root_url = "domain"
 router.get_api_root_view().cls.__doc__ = \
-    "You can filter by provinces making requests like: " \
-    "\n - http://localhost:8000/api/canada/?prname=Ontario" \
-    "\n - http://localhost:8000/api/canada/?prname=British Columbia" \
+    "You can filter by provinces making requests like:" \
+    f'\n - http://{root_url}/api/canada/?prname=Ontario' \
+    f'\n - http://{root_url}/api/canada/?prname=British Columbia' \
     "\n " \
     "\n Available provinces are: " \
     "['Ontario', 'British Columbia', 'Canada', 'Quebec', 'Alberta', \
