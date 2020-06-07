@@ -29,7 +29,6 @@ DEBUG = os.environ.get('DEBUG') != 'FALSE'
 
 ALLOWED_HOSTS = ['covid19-ca.herokuapp.com', 'localhost:8000', 'localhost']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,10 +45,12 @@ INSTALLED_APPS = [
     'requests',
     'pandas',
     'api',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -129,7 +130,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
-
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
