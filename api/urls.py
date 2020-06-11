@@ -11,10 +11,10 @@ class MyAPIRootView(routers.APIRootView):
         return "COVID19-CA Rest API"
 
     def append_link_items(self, pr_name, text, root):
+        href = f'{root}{pr_name}'
         text += f"\n <li>" \
-                f"\n <a href={root}{pr_name}> {pr_name} </a>" \
+                f"\n <a href='{href}'> {pr_name} </a>" \
                 f"\n </li>"
-
         return text
 
     def get_view_description(self, html=False) -> str:
