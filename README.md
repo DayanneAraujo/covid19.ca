@@ -1,5 +1,5 @@
 # covid19.ca
-Rest API to provide numbers for COVID 19 data on Canada. 
+Rest API to provide numbers about COVID 19 data on Canada. 
 The data is provided by the Canadian government on its website: 
 https://www.canada.ca/en/public-health/services/diseases/coronavirus-disease-covid-19.html
 
