@@ -11,7 +11,7 @@ class MyAPIRootView(routers.APIRootView):
         return "COVID19-CA Rest API"
 
     def append_link_items(self, pr_name, text, root):
-        href = f'{root}{pr_name}'
+        href = f"{root}{pr_name}"
         text += f"\n <li>" \
                 f"\n <a href='{href}'> {pr_name} </a>" \
                 f"\n </li>"
@@ -22,14 +22,14 @@ class MyAPIRootView(routers.APIRootView):
                    'New Brunswick', 'Newfoundland and Labrador',
                    'Northwest Territories', 'Nova Scotia', 'Nunavut',
                    'Ontario', 'Prince Edward Island', 'Quebec',
-                   'Repatriated Travellers', 'Repatriated travellers',
-                   'Saskatchewan', 'Yukon']
+                   'Repatriated Travellers', 'Saskatchewan', 'Yukon']
 
         root = "https://covid19-ca.herokuapp.com/api/canada/?prname="
 
         text = \
+            f"This API returns COVID19 statistics for each province in Canada." \
             f"You can filter by provinces using province names on get requests parameters: " \
-            f"\n <ul>" \
+            f"<ul>" \
 
         for pr_name in prNames:
             text = self.append_link_items(pr_name, text, root)
